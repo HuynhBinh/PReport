@@ -186,11 +186,14 @@ public class MyLocationService extends Service implements GoogleApiClient.Connec
         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
 
 
-        MyLocation myLoc = new MyLocation();
-        myLoc.setId(Const.MY_LOCATION_ID);
-        myLoc.setLatitude(location.getLatitude());
-        myLoc.setLongitude(location.getLongitude());
-        LocationController.insertOrUpdateMyLocation(MyLocationService.this, myLoc);
+        if (location != null)
+        {
+            MyLocation myLoc = new MyLocation();
+            myLoc.setId(Const.MY_LOCATION_ID);
+            myLoc.setLatitude(location.getLatitude());
+            myLoc.setLongitude(location.getLongitude());
+            LocationController.insertOrUpdateMyLocation(MyLocationService.this, myLoc);
+        }
 
         startLocationUpdates();
     }

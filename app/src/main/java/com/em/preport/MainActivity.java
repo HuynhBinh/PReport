@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity
             if (intent.getAction().equalsIgnoreCase(Const.RECEIVER_LOAD_ALL_PLOC_FINISH))
             {
                 String result = intent.getStringExtra(Const.EXTRA_RESULT);
-                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Load all location ok", Toast.LENGTH_LONG).show();
             }
         }
     };
